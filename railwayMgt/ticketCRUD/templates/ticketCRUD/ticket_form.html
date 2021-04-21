@@ -1,0 +1,12 @@
+ {% extends "ticketCRUD/home.html" %}
+
+{% block content %}
+       
+<h2><a href="{% url 'ticketCRUD:ticket_list' %}">Ticket</a>: Edit</h2>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

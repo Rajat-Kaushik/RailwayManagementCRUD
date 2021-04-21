@@ -1,0 +1,19 @@
+ {% extends "ticketCRUD/home.html" %}
+
+{% block content %}
+
+ 
+ <h2><a href="{% url 'ticketCRUD:ticket_list' %}">Tickets</a></h2>
+
+<ul>
+    {% for ticket in object_list %}
+    <li>{{ ticket.name }}  ({{ ticket.age }} Years)
+    <a href="{% url 'ticketCRUD:ticket_edit' ticket.id %}">edit</a>
+    <a href="{% url 'ticketCRUD:ticket_delete' ticket.id %}">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'ticketCRUD:ticket_new' %}">New</a>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+ {% extends "ticketCRUD/home.html" %}
+
+{% block content %}
+
+
+<div class="row py-5">
+  <div class="col-sm-6 d-flex justify-content-center">
+    <div class="card text-center " style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Show Tickets</h5>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <a href="{% url 'ticketCRUD:ticket_list' %}" class="btn btn-primary ">Show</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 d-flex justify-content-center">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Create New Ticket</h5>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <a href="{% url 'ticketCRUD:ticket_new' %}" class="btn btn-primary">Create</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

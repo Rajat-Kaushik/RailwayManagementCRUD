@@ -3,10 +3,31 @@
 {% block content %}
 
       
-<h2><a href="{% url 'ticketCRUD:ticket_list' %}">Ticket</a>: Delete?</h2>
+<h2 class="text-center"><a href="{% url 'ticketCRUD:ticket_list' %}">Ticket Deletion</a></h2>
+ <h2 class="text-center"><a href="{% url 'ticketCRUD:ticket_list' %}" class="btn btn-primary ">Show Tickets</a>
+    <a href="{% url 'ticketCRUD:ticket_new' %}" class="btn btn-primary ">Create New Ticket</a>
+    <a href="/" class="btn btn-secondary ">Main Menu</a>
+</h2>
 
-<form method="post">{% csrf_token %}
-    Are you sure you want to delete "{{ object }}" ?<br>
+<!-- <form method="post">{% csrf_token %}
+    Are you sure you want to delete "{{ object.id }} {{ object.name }}" ?<br>
     <input type="submit" value="Delete" />
+</form> -->
+<form method="post">{% csrf_token %}
+<div class="row py-5">
+    <div class="col-sm-12 d-flex justify-content-center">
+      <div class="card text-center " style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Are you sure you want to delete</h5>
+          <p class="card-text"><b>Ticket No: </b> {{ object.id }} <b> <br> named after </b> {{ object.name }}</p>
+          <!-- <a href="{% url 'ticketCRUD:ticket_list' %}" class="btn btn-primary ">Show</a> -->
+          <button class="btn btn-danger col-sm-12 d-flex justify-content-center" type="submit" value="Delete">Delete</button>
+        </div>
+      </div>
+    </div>
+   
+  </div>
 </form>
 {% endblock %}
+
+

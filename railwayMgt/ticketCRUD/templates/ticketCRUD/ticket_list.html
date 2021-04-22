@@ -1,19 +1,54 @@
- {% extends "ticketCRUD/home.html" %}
+{% extends "ticketCRUD/home.html" %}
 
 {% block content %}
 
- 
- <h2><a href="{% url 'ticketCRUD:ticket_list' %}">Tickets</a></h2>
 
+<h2 class="text-center"><a href="{% url 'ticketCRUD:ticket_list' %}">Tickets</a></h2>
+<h2 class="text-center"><a href="{% url 'ticketCRUD:ticket_new' %}" class="btn btn-primary ">Create New Ticket</a>
+    <a href="/" class="btn btn-secondary ">Main Menu</a></h2>
 <ul>
-    {% for ticket in object_list %}
-    <li>{{ ticket.name }}  ({{ ticket.age }} Years)
-    <a href="{% url 'ticketCRUD:ticket_edit' ticket.id %}">edit</a>
-    <a href="{% url 'ticketCRUD:ticket_delete' ticket.id %}">delete</a>
-    </li>
-    {% endfor %}
+  
+
+
+    <div class="row py-3">
+        {% for ticket in object_list %}
+        <div class="col-sm-3 d-flex justify-content-center py-3">
+            <div class="card  " style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center"> Ticket Number : {{ ticket.id }} </h5>
+                    <p class="card-text"><br>
+                        <b>Passenger Name:</b> {{ ticket.name }} <br>
+                        <b>Passenger Age :</b> {{ ticket.age }} Years<br>
+                        <b>Address:</b> {{ ticket.address }} <br>
+                        <b>City:</b> {{ ticket.city }} <br>
+                        <b>State:</b> {{ ticket.state }} <br>
+                        <b>Travel Date:</b> {{ ticket.travelDate }} <br>
+                        <b>Source Station:</b> {{ ticket.source }} <br>
+                        <b>Destination Station:</b> {{ ticket.dest }} <br>
+                        <b>Train:</b> {{ ticket.train }} <br>
+                        <b>Price:</b> Rs {{ ticket.price }} <br>
+                        <b>Internationl Travel:</b> {{ticket.intTravel }}<br>
+                        <b>Setu Status:</b> {{ ticket.setuStatus }}<br>
+                        <b>Carrying RT-PCR Report:</b> {{ ticket.report }} <br>
+                       
+                    </p>
+                    <hr>
+
+                    <a href="{% url 'ticketCRUD:ticket_edit' ticket.id %}" class="btn btn-primary col-sm-12 d-flex justify-content-center ">Edit</a>
+                    <hr>
+                    <a href="{% url 'ticketCRUD:ticket_delete' ticket.id %}" class="btn btn-danger col-sm-12 d-flex justify-content-center">Delete</a>
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+ 
 </ul>
 
-<a href="{% url 'ticketCRUD:ticket_new' %}">New</a>
+
 
 {% endblock %}

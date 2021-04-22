@@ -1,12 +1,134 @@
  {% extends "ticketCRUD/home.html" %}
 
-{% block content %}
-       
-<h2><a href="{% url 'ticketCRUD:ticket_list' %}">Ticket</a>: Edit</h2>
+ {% block content %}
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
+ <!-- <h2><a href="{% url 'ticketCRUD:ticket_list' %}">Ticket</a>: Edit</h2> -->
+ <h2 class="text-center"><a href="{% url 'ticketCRUD:ticket_list' %}" class="btn btn-primary ">Show Tickets</a>
+    <a href="/" class="btn btn-secondary ">Main Menu</a></h2>
 
-{% endblock %}
+ <form method="post">{% csrf_token %}
+
+     <div class="row py-3">
+         <div class="col-sm-12 d-flex justify-content-center">
+             <div class="card  " style="width: 25rem;">
+                 <div class="card-body">
+                     <h5 class="card-title text-center"> Ticket </h5>
+                     <p class="card-text"><br>
+                         <p>
+                             <label for="id_name">Name:</label>
+                             <input id="id_name" type="text" name="name" required>
+                         </p>
+                         <p>
+                             <label for="id_age">Age:</label>
+                             <input id="id_age" type="number" name="age" required>
+                         </p>
+                         <p>
+                             <label for="id_address">Address:</label>
+                             <textarea id="id_address" name="address" rows="2" cols="20" required></textarea>
+                         </p>
+
+                         <p>
+                             <label for="id_city">Choose City: </label>
+
+                             <select name="city" id="id_city">
+                                 <option value="Delhi">Delhi</option>
+                                 <option value="Mumbai">Mumbai</option>
+                                 <option value="Chennai">Chennai</option>
+                                 <option value="Kolkata">Kolkata</option>
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_state">Choose State: </label>
+
+                             <select name="state" id="id_state">
+                                 <option value="Delhi">Delhi</option>
+                                 <option value="Maharashtra">Maharashtra</option>
+                                 <option value="Tamil Nadu">Tamil Nadu</option>
+                                 <option value="Kolkata">West Bengal</option>
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_travelDate">Travelling Date: </label>
+                             <input id="id_travelDate" type="date" name="travelDate" required>
+                         </p>
+
+                         <p>
+                             <label for="id_source">Choose From Station: </label>
+
+                             <select name="source" id="id_source">
+                                 <option value="Delhi">Delhi</option>
+                                 <option value="Mumbai">Mumbai</option>
+                                 <option value="Chennai">Chennai</option>
+                                 <option value="Kolkata">Kolkata</option>
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_dest">Choose Destination Station: </label>
+
+                             <select name="dest" id="id_dest">
+                                 <option value="Delhi">Delhi</option>
+                                 <option value="Mumbai">Mumbai</option>
+                                 <option value="Chennai">Chennai</option>
+                                 <option value="Kolkata">Kolkata</option>
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_train">Choose Train: </label>
+
+                             <select name="train" id="id_train">
+                                 <option value="Rajdhani">Rajdhani</option>
+                                 <option value="Shatabdi">Shatabdi</option>
+                                 <option value="Bullet">Bullet</option>
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_price">Choose Price: </label>
+
+                             <select name="price" id="id_price">
+                                 <option value=3000.50>AC-1: Rs: 3000.50 </option>
+                                 <option value=2000.50>AC-2: Rs: 2000.50 </option>
+                                 <option value=1000.50>AC-3: Rs: 1000.50 </option>
+
+                             </select>
+                         </p>
+
+                         <p>
+                             <label for="id_intTravel">International Travel:</label>
+                             <input id="id_intTravel" type="checkbox" name="intTravel">
+                         </p>
+
+                         <p>
+                             <label>Aarogya Setu App Status: </label>
+
+                             <input type="radio" id="id_setuStatus" name="setuStatus" value="Green">
+                             <label for="id_setuStatus">Green</label>
+
+                             <input type="radio" id="id_setuStatus" name="setuStatus" value="Red">
+                             <label for="id_setuStatus">Red</label>
+
+                         </p>
+
+                         <p>
+                             <label for="id_report">Carrying RT-PCR Report</label>
+                             <input id="id_report" type="checkbox" name="report">
+                         </p>
+
+
+
+                         <!-- <input type="submit" value="Submit" /> -->
+
+                         <button class="btn btn-success col-sm-12 d-flex justify-content-center" type="submit" value="Submit">Submit</button>
+
+
+                 </div>
+             </div>
+         </div>
+
+     </div>
+ </form>
+ {% endblock %}

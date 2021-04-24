@@ -20,9 +20,7 @@ class Ticket(models.Model):
     intTravel = models.BooleanField()
     setuStatus = models.CharField(max_length=50)
     report = models.BooleanField()
-    ##Image Part
    
-
     def __str__(self):
         return self.name
 

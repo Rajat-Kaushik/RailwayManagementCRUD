@@ -6,8 +6,9 @@ from django.urls import reverse_lazy
 from .models import Ticket
 from django.shortcuts import render
 
-def index(request):
-    return render(request,'ticketCRUD/index.html')
+
+class Index(TemplateView):
+    template_name = 'ticketCRUD/index.html'
 
 
 class TicketList(ListView):

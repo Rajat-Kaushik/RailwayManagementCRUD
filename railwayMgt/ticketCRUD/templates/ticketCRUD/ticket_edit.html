@@ -6,26 +6,27 @@
      <a href="/" class="btn btn-secondary ">Main Menu</a></h2>
 
  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+     {% csrf_token %}
 
      <div class="row py-3">
          <div class="col-sm-12 d-flex justify-content-center">
              <div class="card  " style="width: 25rem;">
-                 <div class="card-body">
-                     <h5 class="card-title text-center"> New Ticket </h5>
+                 <div class="card-body bg-secondary ">
+                     <h5 class="card-title text-center"> Ticket Edit: {{ ticket.id }} </h5>
                      <p class="card-text"><br>
                          <p>
-                            <b><label for="id_name" class="form-label">Name:</label></b>
-                             <input id="id_name" type="text" name="name" class="form-control" required>
-                            
+                            <b><label for="id_name" class="form-label">{{form.name.label_tag}}</label></b>
+                             <input id="id_name" type="text" name="name" class="form-control" value={{form.name.value}} required>
+                             
                          </p>
+
                          <p>
                             <b><label for="id_age" class="form-label">Age:</label></b>
-                             <input id="id_age" type="number" name="age" class="form-control" required>
+                             <input id="id_age" type="number" name="age" class="form-control" value={{form.age.value}} required>
                          </p>
                          <p>
                             <b><label for="id_address" class="form-label">Address:</label></b>
-                             <textarea id="id_address" name="address" rows="2" cols="20" class="form-control" required></textarea>
+                             <textarea  id="id_address" name="address" rows="2" cols="20" class="form-control" value=`ticket.address` required>{{form.address.value}}</textarea>
                          </p>
 
                          <p>
@@ -42,7 +43,7 @@
                          <p>
                             <b> <label for="id_state" class="form-label">Choose State: </label></b>
 
-                             <select name="state" id="id_state" class="form-select" required>
+                             <select name="state" id="id_state" class="form-select"  required>
                                  <option value="Delhi">Delhi</option>
                                  <option value="Maharashtra">Maharashtra</option>
                                  <option value="Tamil Nadu">Tamil Nadu</option>
@@ -58,7 +59,7 @@
                          <p>
                             <b>  <label for="id_source" class="form-label">Choose From Station: </label></b>
 
-                             <select name="source" id="id_source" class="form-select" required>
+                             <select name="source" id="id_source" class="form-select" value={{form.source.value}} required>
                                  <option value="Delhi">Delhi</option>
                                  <option value="Mumbai">Mumbai</option>
                                  <option value="Chennai">Chennai</option>
@@ -69,7 +70,7 @@
                          <p>
                             <b>  <label for="id_dest" class="form-label">Choose Destination Station: </label></b>
 
-                             <select name="dest" id="id_dest" class="form-select" required>
+                             <select name="dest" id="id_dest" class="form-select"  required>
                                  <option value="Delhi">Delhi</option>
                                  <option value="Mumbai">Mumbai</option>
                                  <option value="Chennai">Chennai</option>
@@ -100,7 +101,7 @@
 
                          <p>
                             <b> <label for="id_intTravel" class="form-label">International Travel:</label></b>
-                             <input id="id_intTravel" type="checkbox" name="intTravel" class="form-check-input" >
+                             <input id="id_intTravel" type="checkbox" name="intTravel"  class="form-check-input" >
                          </p>
 
                          <p>
@@ -121,9 +122,11 @@
 
                          <p>
                             <b> <label for="id_image" class="form-label">Upload Aadhar Image:</label></b>
-                            <input type="file" id="id_image" name="image" class="form-control" required>
+                            <p >{{form.image.as_widget}}</p>
+                            <!-- <input type="file" id="id_image" name="image" class="form-control" required> -->
                          </p>
 
+                         <!-- {{ form.as_ul}} -->
                          <button class="btn btn-success col-sm-12 d-flex justify-content-center" type="submit"
                              value="Submit">Submit</button>
 

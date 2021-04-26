@@ -13,17 +13,22 @@ class Index(TemplateView):
 
 class TicketList(ListView):
     model = Ticket
+    template_name = 'ticketCRUD/ticket_list.html'
 
 class TicketCreate(CreateView):
     model = Ticket
-    fields = ['name', 'age','address','city','state','travelDate','source','dest','train','price','intTravel','setuStatus','report']
+    fields = ['name', 'age','address','city','state','travelDate','source','dest','train','price','intTravel','setuStatus','report','image']
+    template_name = 'ticketCRUD/ticket_form.html'
     success_url = reverse_lazy('ticketCRUD:ticket_list')
 
 class TicketUpdate(UpdateView):
     model = Ticket
-    fields = ['name', 'age','address','city','state','travelDate','source','dest','train','price','intTravel','setuStatus','report']
+    fields = ['name', 'age','address','city','state','travelDate','source','dest','train','price','intTravel','setuStatus','report','image']
+    template_name = 'ticketCRUD/ticket_edit.html'
     success_url = reverse_lazy('ticketCRUD:ticket_list')
+
 
 class TicketDelete(DeleteView):
     model = Ticket
+    template_name = 'ticketCRUD/ticket_confirm_delete.html'
     success_url = reverse_lazy('ticketCRUD:ticket_list')

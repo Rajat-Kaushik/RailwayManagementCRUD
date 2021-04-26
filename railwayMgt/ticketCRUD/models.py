@@ -20,6 +20,9 @@ class Ticket(models.Model):
     intTravel = models.BooleanField()
     setuStatus = models.CharField(max_length=50)
     report = models.BooleanField()
+
+    ## Images
+    image=models.ImageField(null=True,blank=True,upload_to="images/")
    
     def __str__(self):
         return self.name
